@@ -1,0 +1,42 @@
+[
+  {
+    "name": "test",
+    "price": "500",
+    "category": "cardio",
+    "img": "test",
+    "stock": "5",
+    "description": "lorem",
+    "id": 5
+  },
+  {
+    "name": "test",
+    "price": "500",
+    "category": "cardio",
+    "img": "test",
+    "stock": "5",
+    "description": "lorem",
+    "id": 8
+  },
+  {
+    "name": "test",
+    "price": "500",
+    "category": "cardio",
+    "img": "test",
+    "stock": "5",
+    "description": "lorem",
+    "id": 9
+  },
+  {
+    "id": 4
+  },
+  {
+    "id": 3,
+    "name": "lorem",
+    "img": "test"
+  },
+  {
+    "id": 7,
+    "name": "lorem",
+    "img": "test"
+  }
+]
