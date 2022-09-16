@@ -1,0 +1,44 @@
+head
+  title Bootstrap Example
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css' rel='stylesheet')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js')
+  link(rel='stylesheet' href='../../assets/style.css')
+nav.navbar.navbar-expand-sm.bg-light
+  .container-fluid
+    // Links
+    ul.navbar-nav
+      li.nav-item
+        a.nav-link(href='index')
+          strong Cargar producto
+.container.mt-3
+  h2 Listado de productos
+  table.table.table-striped
+    thead
+      tr
+        th ID
+        th Nombre
+        th Precio
+        th Categor&iacute;a
+        th Img
+        th Stock
+        th Description
+    tbody
+      tr
+      each val in productos
+        td 
+          v=val.id
+        td
+          v=val.name
+        td
+          v=val.price
+        td
+          v=val.category
+        td
+          v=val.img
+        td
+          v=val.stock
+        td
+          v=val.description
+      

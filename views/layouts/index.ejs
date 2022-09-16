@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar producto</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    
+
+    <nav class="navbar navbar-expand-sm bg-light">
+
+  <div class="container-fluid">
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="list"><strong>Ver listado</strong></a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+    <div class="container">
+    <h2>Ingrese producto</h2>
+    <form action="/index" method="post" class="horizontal-form">
+      <input type="text" name="name" placeholder="Nombre" />
+      <input type="text" name="price" placeholder="Precio" />
+      <input type="text" name="category" placeholder="Categoria" />
+      <input type="text" name="img" placeholder="Link imagen" />
+      <input type="number" name="stock" placeholder="Stock" />
+      <input type="text" name="description" placeholder="Descripcion" />
+      <input type="submit" name="submit" id="submit" class="btn btn-primary">
+    </form>
+        <div class="mensaje">
+            
+        </div>
+    </div>
+
+    <script>
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+        });
+        let value = params.id; 
+        console.log(value);
+        if (value !== null) {
+        document.querySelector('.mensaje').innerHTML = `<div class="alert alert-success mensaje">Producto cargado con ID ${value}</div>`;
+        }
+    </script>
+  </body>
+</html>

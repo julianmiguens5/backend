@@ -1,0 +1,31 @@
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Agregar producto
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+  link(rel='stylesheet' href='style.css')
+nav.navbar.navbar-expand-sm.bg-light
+  .container-fluid
+    // Links
+    ul.navbar-nav
+      li.nav-item
+        a.nav-link(href='list')
+          strong Ver listado
+.container
+  h2 Ingrese producto
+  form.horizontal-form(action='/index' method='post')
+    input(type='text' name='name' placeholder='Nombre')
+    input(type='text' name='price' placeholder='Precio')
+    input(type='text' name='category' placeholder='Categoria')
+    input(type='text' name='img' placeholder='Link imagen')
+    input(type='number' name='stock' placeholder='Stock')
+    input(type='text' name='description' placeholder='Descripcion')
+    input#submit.btn.btn-primary(type='submit' name='submit')
+  .alert.alert-success.mensaje
+script.
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+  });
+  let value = params.id;
+  console.log(value);
+  document.querySelector('.mensaje').innerHTML = `Producto cargado con ID ${value}`;
