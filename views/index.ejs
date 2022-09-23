@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <%- include('./partials/head'); %>
+
+        <div class="container">
+        <form>
+          <input type="text" name="name" id="name" required placeholder="Nombre" />
+          <input type="text" name="price" id="price" required placeholder="Precio" />
+          <input type="text" name="category" id="category" required placeholder="Categoria" />
+          <input type="text" name="img" id="img" placeholder="Link imagen" />
+          <input type="number" name="stock" id="stock" placeholder="Stock" />
+          <input type="text" name="description" id="description" placeholder="Descripcion" />
+          <button class="btn btn-lg btn-primary btn-block" id="enviar">Enviar</button>
+        </form>
+            <div class="mensaje">
+                
+            </div>
+        </div>
+    
+        <div class="container mt-3">
+          <h2>Listado de productos</h2>            
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Categoría</th>
+                <th>Img</th>
+                <th>Stock</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody id="listado">
+              <% productos.map( producto => { %>
+                <tr>
+                  <td><%= producto.name %></td>
+                  <td><%= producto.price %></td>
+                  <td><%= producto.category %></td>
+                  <td><%= producto.img %></td>
+                  <td><%= producto.stock %></td>
+                  <td><%= producto.description %></td>
+                  </tr>
+                <% } ) %>
+            </tbody>
+          </table>
+        </div>
+    
+        <script>
+            const params = new Proxy(new URLSearchParams(window.location.search), {
+                get: (searchParams, prop) => searchParams.get(prop),
+            });
+            let value = params.id; 
+            console.log(value);
+            if (value !== null) {
+            document.querySelector('.mensaje').innerHTML = `<div class="alert alert-success mensaje">Producto cargado con ID ${value}</div>`;
+            }
+        </script>
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="./index.js"></script>
+</html>
