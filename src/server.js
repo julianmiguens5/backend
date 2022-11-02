@@ -1,5 +1,8 @@
 import express from 'express'
 import { Router } from 'express';
+import config from './config.js';
+import DBContainer from './contenedores/ContenedorSQL.js';
+const DB = new DBContainer(config.MySQL, 'productos');
 
 const app = express();
 
